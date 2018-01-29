@@ -1,16 +1,18 @@
 import React from 'react';
-import { object, func } from 'prop-types';
+import { object, string, func } from 'prop-types';
 
-const TodoListItem = ({ todo, done }) => <li>{todo.value}<input type="checkbox" onClick={done} /></li>;
+const TodoListItem = props => <li>{props.todo.value}<span><input type="checkbox" onClick={props.handleDone} /></span><button>Delete</button></li>;
 
 TodoListItem.propTypes = {
   todo: object,
-  done: func,
+  value: string,
+  handleDone: func,
 };
 
 TodoListItem.defaultProps = {
   todo: object,
-  done: () => {},
+  value: '',
+  handleDone: func,
 };
 
 export default TodoListItem;
